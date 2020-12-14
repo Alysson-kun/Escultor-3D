@@ -121,18 +121,18 @@ void Sculptor::putSphere(int xcenter, int ycenter, int zcenter, int radius)
     2) está contida na matriz tridimensional de voxels. */
 
     int px=0,py=0,pz=0;
-    for(int i=0; i<nx; i++)
+    for(int i=0; i<xcenter; i++)
     {
-        for(int j=0; j<ny; j++)
+        for(int j=0; j<ycenter; j++)
         {
-            for(int k=0; k<nz; k++)
+            for(int k=0; k<zcenter; k++)
             {
                 px=i-xcenter;
                 py=j-ycenter;
                 pz=k-zcenter;
                 if(pow(px,2)+pow(py,2)+pow(pz,2)<=pow(radius,2))
                     {
-                        if(i<nx && j<ny && k<nz && i>0 && j>0 && k>0)
+                        if(i<xcenter && j<ycenter && k<zcenter && i>0 && j>0 && k>0)
                             putVoxel(i,j,k);
                     }
             }
@@ -146,18 +146,18 @@ void Sculptor::cutSphere(int xcenter, int ycenter, int zcenter, int radius)
     mesmas duas condições. */
 
     int px=0,py=0,pz=0;
-    for(int i=0; i<nx; i++)
+    for(int i=0; i<xcenter; i++)
     {
-        for(int j=0; j<ny; j++)
+        for(int j=0; j<ycenter; j++)
         {
-            for(int k=0; k<nz; k++)
+            for(int k=0; k<zcenter; k++)
             {
                 px=i-xcenter;
                 py=j-ycenter;
                 pz=k-zcenter;
                 if(pow(px,2)+pow(py,2)+pow(pz,2)<=pow(radius,2))
                     {
-                        if(i<nx && j<ny && k<nz && i>0 && j>0 && k>0)
+                        if(i<xcenter && j<ycenter && k<zcenter && i>0 && j>0 && k>0)
                             cutVoxel(i,j,k);
                     }
             }
@@ -172,18 +172,18 @@ void Sculptor::putEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int r
     (x-x0)²/rx²+(y-y0)²/ry²+(z-z0)²/rz²= 1. Dessa forma, a esfera é desenhada mediante duas condições: 1) satisfazer a equação do elipsóide,
     2) está contida na matriz tridimensional de voxels. */
     int px=0,py=0,pz=0;
-    for(int i=0; i<nx; i++)
+    for(int i=0; i<xcenter; i++)
     {
-        for(int j=0; j<ny; j++)
+        for(int j=0; j<ycenter; j++)
         {
-            for(int k=0; k<nz; k++)
+            for(int k=0; k<zcenter; k++)
             {
                 px=i-xcenter;
                 py=j-ycenter;
                 pz=k-zcenter;
                 if((pow(px,2)/pow(rx,2))+(pow(py,2)/pow(ry,2))+(pow(pz,2)/pow(rz,2))<=1)
                     {
-                        if(i<nx && j<ny && k<nz && i>0 && j>0 && k>0)
+                        if(i<xcenter && j<ycenter && k<zcenter && i>0 && j>0 && k>0)
                             putVoxel(i,j,k);
                     }
             }
@@ -196,18 +196,18 @@ void Sculptor::cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int r
     /*Seguindo a mesma lógica do putEllipsoid, a diferença entre as funções é que o cutEllipsoid remove os voxels seguindo as
     mesmas duas condições. */
     int px=0,py=0,pz=0;
-    for(int i=0; i<nx; i++)
+    for(int i=0; i<xcenter; i++)
     {
-        for(int j=0; j<ny; j++)
+        for(int j=0; j<ycenter; j++)
         {
-            for(int k=0; k<nz; k++)
+            for(int k=0; k<zcenter; k++)
             {
                 px=i-xcenter;
                 py=j-ycenter;
                 pz=k-zcenter;
                 if((pow(px,2)/pow(rx,2))+(pow(py,2)/pow(ry,2))+(pow(pz,2)/pow(rz,2))<=1)
                     {
-                        if(i<nx && j<ny && k<nz && i>0 && j>0 && k>0)
+                        if(i<xcenter && j<ycenter && k<zcenter && i>0 && j>0 && k>0)
                             cutVoxel(i,j,k);
                     }
             }
